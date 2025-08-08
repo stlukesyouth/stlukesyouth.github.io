@@ -192,30 +192,6 @@
   </style>
 </head>
 <body>
-  <div class="page">
-    <!-- Timer Section -->
-    <div class="timer-box">
-      <h2><span class="hourglass">⏳</span> Countdown to Youth Retreat 2025</h2>
-      <div id="timer">
-        <div class="time-box">
-          <div id="days">00</div>
-          <div class="label">Days</div>
-        </div>
-        <div class="time-box">
-          <div id="hours">00</div>
-          <div class="label">Hours</div>
-        </div>
-        <div class="time-box">
-          <div id="minutes">00</div>
-          <div class="label">Minutes</div>
-        </div>
-        <div class="time-box">
-          <div id="seconds">00</div>
-          <div class="label">Seconds</div>
-        </div>
-      </div>
-      <div id="message"></div>
-    </div>
     <div class="container">
       <a href="https://actionbound.com/bound/game-play-around" class="box active">Treasure Hunt</a>
       <a href="https://kahoot.it" class="box active">Kahoot Quiz</a>
@@ -228,36 +204,5 @@
     </div>
 
   </div>
-
-  <!-- Timer Script -->
-  <script>
-    const eventDate = new Date("2025-08-10T10:30:00").getTime();
-
-    function updateTimer() {
-      const now = new Date().getTime();
-      const distance = eventDate - now;
-
-      if (distance <= 0) {
-        clearInterval(timerInterval);
-        document.getElementById("message").textContent = "🎉 The Event Has Started!";
-        document.getElementById("timer").style.display = "none";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("days").textContent = String(days).padStart(2, '0');
-      document.getElementById("hours").textContent = String(hours).padStart(2, '0');
-      document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
-      document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
-    }
-
-    const timerInterval = setInterval(updateTimer, 1000);
-    updateTimer();
-
-  </script>
 </body>
 </html>
