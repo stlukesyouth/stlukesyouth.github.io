@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Roster</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #1c1e21;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        /* Container for the team cards */
+        .teams-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px; /* Space between cards */
+        }
+
+        /* Individual Team Card Styling */
+        .team-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .team-card h2 {
+            margin-top: 0;
+            color: #007bff; /* A nice blue for the team name */
+            font-size: 1.5em;
+        }
+
+        /* Member List Styling */
+        .team-card ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .team-card li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ebee;
+            font-size: 1em;
+            color: #4b4f56;
+        }
+
+        .team-card li:last-child {
+            border-bottom: none; /* Remove border from the last member */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Treasure Hunt Teams</h1>
+
+    <div id="teams-display-area" class="teams-container">
+        </div>
+
+    <script>
+        // --- ✏️ EDIT YOUR TEAMS AND MEMBERS HERE ---
+        const teamsData = [
+            {
+                name: "Boys Team 1",
+                members: ["Alex Johnson", "Brenda Smith", "Charles Brown"]
+            },
+            {
+                name: "Boys Team 2",
+                members: ["Ian Moore", "Jessica Lee", "Kevin Garcia"]
+            },
+            {
+                name: "Boys Team 3",
+                members: ["Quentin Perez", "Rachel Scott", "Steven King", "Tina Wright"]
+            },
+            {
+                name: "Girls Team 1",
+                members: ["Yara Carter", "Zane Mitchell", "Ava Roberts"]
+            },
+            {
+                name: "Girls Team 2",
+                members: ["Grace Edwards", "Henry Collins", "Ivy Stewart"]
+            },
+            {
+                name: "Girls Team 3",
+                members: ["Olivia Bell", "Peter Murphy", "Quinn Bailey"]
+            }
+        ];
+
+        // Function to generate and display the teams on the page
+        function displayTeams() {
+            const container = document.getElementById('teams-display-area');
+            let allTeamsHTML = '';
+
+            teamsData.forEach(team => {
+                // Generate the list of members for the current team
+                const membersHTML = team.members.map(member => `<li>${member}</li>`).join('');
+
+                // Create the HTML for one team card
+                const teamCardHTML = `
+                    <div class="team-card">
+                        <h2>${team.name}</h2>
+                        <ul>
+                            ${membersHTML}
+                        </ul>
+                    </div>
+                `;
+
+                // Add this card's HTML to the total HTML string
+                allTeamsHTML += teamCardHTML;
+            });
+
+            // Set the container's content to all the generated cards
+            container.innerHTML = allTeamsHTML;
+        }
+
+        // Call the function when the page loads
+        document.addEventListener('DOMContentLoaded', displayTeams);
+    </script>
+
+</body>
+</html>
