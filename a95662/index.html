@@ -30,6 +30,21 @@
       color: red;
     }
 
+     .image-section .photo {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+    }
+
     @media (max-width: 600px) {
       .message h1 {
         font-size: 12vw;
@@ -38,8 +53,11 @@
   </style>
 </head>
 <body>
-  <div class="message">
-    <h1> The secret is not here 🚫</h1>
+  <div class="page">
+    <div class="image-section">
+      <img src="../images/poster.jpeg" alt="Group Photo" class="photo" />
+    </div>
+
   </div>
 </body>
 </html>
